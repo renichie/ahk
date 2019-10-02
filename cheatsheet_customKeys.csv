@@ -1,0 +1,25 @@
+; -> regExPattern = "^([^:]*)	#	([^:]*)$"
+; -> (UNTESTED) regExPattern = "^(.*?)	#	(.*?*)$"
+^d              	#	delete line (independent of text-cursor(/caret) position)
+^+Backspace     	#	delete line (independent of text-cursor(/caret) position)
+^Enter          	#	insert new line below(independent of caret position)
+^+Enter         	#	insert new line above (independent of caret position)
+^+z             	#	 (rebinding) undo last change
+!DOWN           	#	PgDn
+!UP             	#	PgUp
+!LEFT           	#	jump to Pos1
+!RIGHT          	#	jump to End
+^!WheelUp       	#	
+!+Left          	#	markiert bis Anfang der Zeile
+!+UP            	#	markiert ganze Zeile
+!+Right         	#	markiert bis Ende der Zeile
+^RButton        	#	markiert die angeklickte Zeile
+	^Left          	#	
+	^!WheelUp      	#	
+^!p             	#	save+reload this file
+^+p             	#	run start setup
+!r              	#	opens the batch cmd line
+!p              	#	open powerShell
+~LShift & WheelUp	#	 Scroll left.
+~LShift & WheelDown	#	 Scroll right.
+;^!o            	#	 Will copy the ahk_class of the Active Window to clipboard
