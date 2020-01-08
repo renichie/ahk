@@ -32,24 +32,27 @@
 
 ;===========================================VARIABLES========================================================
 HOTKEY_FILE = C:\Users\EichinDa.DONAT-GROUP\workspace\scripts\ahk\main.ahk
+;SetWorkingDir, C:\Users\EichinDa.DONAT-GROUP\workspace\scripts\ahk
 SLEEP_INTERVAL_MAXIMIZE = 500
 SLEEP_INTERVAL_RELOAD = 100
 SROLL_SPEED_VERTICAL = 12
 
 ;===========================================INCLUDES=========================================================
+
 #include hotkeys.ahk
 #include horizontal_scroll.ahk
 #include hotstrings.ahk
 #include onenote.ahk
 #include text_manipulation.ahk
 ; #include explorer++.ahk
+; #include vim_ahk-master/vim.ahk
 
 
 ;===========================================SHUTDOWN=========================================================
 ^!Backspace:: Shutdown, 4
 
 ;===========================================INCLUDES=========================================================
-^!p:: ;save+reload this file
+^!p:: ;save+reload this file	
 	;Send ^s 
 	;MsgBox, success
 	Run, %HOTKEY_FILE%

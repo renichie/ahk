@@ -6,9 +6,39 @@
 	^!RIGHT::		Send, ^{TAB}
 	^!WheelUp:: 	Send, ^+{TAB}	;
 	^!WheelDown:: 	Send, ^{TAB}
-	!WheelDown:: 	Send, !{Right}	; Seite vor
-	!WheelUP:: 		Send, !{Left}	; Seite zurück
-;/*	
+	!WheelDown:: 	Send, !{Right}	; [OneNote] Seite vor
+	!WheelUP:: 		Send, !{Left}	; [OneNote] Seite zurUEck
+	^LButton:: 						; [OneNote] mark line under mouse button --> <C> doubleklick markiert alles
+	{
+		Click, left
+		Click, left
+		;Send, ^a
+		Send, ^!h
+		return
+	}
+
+	^h:: 			; [OneNote] springt zur UEbersichtsseite (oder eher: 1. Notebook, 1. Seite)
+	^MButton:: 		; [OneNote] springt zur UEbersichtsseite (oder eher: 1. Notebook, 1. Seite)
+		Send, ^g{Down}{Enter} 
+		return
+	
+	^l:: 			; [OneNote] Verweis auf Absatz kopieren (auch fUEr Seiten verwendbar)
+	^+MButton:: 	; [OneNote] Verweis auf Absatz kopieren (auch fUEr Seiten verwendbar)
+	{
+		Click, Right
+		Loop 5
+			Send, {DOWN}
+		Send, {ENTER}
+		return
+	}
+	
+	^d::
+	^+Backspace:: Send, {HOME}+{End}+{UP}{Del}{Del} ; [OneNote] delete line (independent of text-cursor(/caret) position)
+	
+	^+7::
+		Send, {HOME}({END})
+	
+	;/*	
 
 ; mark_mode_active := false
 ; If mark_mode_active
@@ -69,22 +99,4 @@
 ; }
 ;*/
 
-	^h:: ; [OneNote] springt zur Übersichtsseite (oder eher: 1. Notebook, 1. Seite)
-	^MButton:: 		; [OneNote] springt zur Übersichtsseite (oder eher: 1. Notebook, 1. Seite)
-		Send, ^g{Down}{Enter} 
-		return
-	
-	^l:: ; [OneNote] Verweis auf Absatz kopieren (auch für Seiten verwendbar)
-	^+MButton:: ; [OneNote] Verweis auf Absatz kopieren (auch für Seiten verwendbar)
-	{
-		Click, Right
-		Loop 5
-			Send, {DOWN}
-		Send, {ENTER}
-		return
-	}
-	
-^d::
-^+Backspace:: Send, {End}+{UP}+{UP}+{END}{Del} ;delete line (independent of text-cursor(/caret) position)
-	
 #IfWinActive ;EndIF OneNote
