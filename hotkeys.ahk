@@ -123,13 +123,7 @@
 
 
 	;======================================Firefox specific Hotkeys======================================================
-	#IfWinActive ahk_exe firefox.exe
-		^LButton:: ; Tab schließen (völlig überflüssig - weil redundant)
-			Click, Left
-			Send, ^w
-			return
-		return
-	#IfWinActivel
+
 
 	;=======================================Manipulate running Programs=============================================================
 
@@ -158,8 +152,8 @@
 	}
 	return
 
-	!NumpadEnter::
-	!ENTER:: ; execute powershell terminal
+	^!NumpadEnter::
+	^!ENTER:: ; execute powershell terminal
 		#IfWinNotExist, ahk_exe powershell.exe
 			Run, %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe,,,PID
 			; Run, C:\Users\EichinDa.DONAT-GROUP\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.Ink,,,PID
@@ -171,6 +165,7 @@
 		#IfWinNotExist
 		return
 
+
 	;====================================misc============================================================================
 	!F12::keyhistory
 
@@ -178,6 +173,16 @@
 
 	~LAlt Up:: return
 	AppsKey:: return
+	
+	; TODO: in eigene Datei auslagern
+	;==================================== application specific shortcuts =================================================================
+	; Biquanda umbegen
+	#IfWinActive ahk_exe OpenTime.exe
+		^a::
+		^LEFT:: Send, {F6}
+		^d::
+		^RIGHT:: Send, {F8}
+	#IfWinActive
 
 	/*================================================= Parenthesis Wrapping ===============================================================*/
 

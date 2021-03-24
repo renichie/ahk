@@ -1,5 +1,3 @@
-;©David Eichiner
-
 ;This file functions as the entry point for all hotkeys
 ;- defines global variables
 ;- includes hotkey files
@@ -31,7 +29,7 @@
 ;also: ^+7 -> komplette Zeile wird als pfad geparst (nützlich?)
 
 ;===========================================VARIABLES========================================================
-HOTKEY_FILE = C:\Users\EichinDa.DONAT-GROUP\workspace\scripts\ahk\main.ahk
+HOTKEY_FILE = C:\Users\eichinda\scripts\ahk\main.ahk
 ;SetWorkingDir, C:\Users\EichinDa.DONAT-GROUP\workspace\scripts\ahk
 SLEEP_INTERVAL_MAXIMIZE = 500
 SLEEP_INTERVAL_RELOAD = 100
@@ -80,4 +78,6 @@ return
 ;also: ^+7 -> komplette Zeile wird als pfad geparst (nützlich?)
 ;<^>!+::
 
+;====================================== AVAILABILITY ===================================================
+#IfTimeout 100;
 

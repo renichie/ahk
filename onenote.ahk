@@ -1,6 +1,8 @@
 ;======================================OneNote specific Hotkeys======================================================
 #IfWinActive ahk_exe ONENOTE.exe
+	^w::
 	^UP::			Send, ^{PGUP}
+	^s::
 	^DOWN::			Send, ^{PGDN}
 	^!Left::		Send, ^+{TAB}	;
 	^!RIGHT::		Send, ^{TAB}
