@@ -6,11 +6,7 @@
 ; -> (UNTESTED) regExPattern = "^(.*?)::.*?;(.*?*)$"
 
 ;=======================================Variables=========================================================================
-;fileManager := "C:\Program Files (x86)\explorer++_1.3.4_x64\Explorer++.exe"
-
 #if (!WinExist("ahk_exe idea64.exe"))
-;#if (!WinActive("ahk_exe idea64.exe"))
-;#if (!WinActive("ahk_exe idea64.exe"))
 ;{
 	;=======================================Edit=========================================================================
 
@@ -73,11 +69,11 @@
 	!UP::Send, {PGUP} 		;PgUp
 
 	#IfWinNotActive ahk_exe ONENOTE.exe
-	!LEFT:: Send, {HOME} 	;jump to Pos1
-	!RIGHT:: Send, {END}	;jump to End
+	;!LEFT:: Send, {HOME} 	;jump to Pos1
+	;!RIGHT:: Send, {END}	;jump to End
 	#IfWinNotActive
 
-	^!WheelUp:: Send, ^+{TAB}	;
+	^!WheelUp:: Send, ^+{TAB}
 	^!WheelDown:: Send, ^{TAB}
 
 
@@ -105,38 +101,10 @@
 	!o:: Send, {END}{ENTER} ; create a blank line after the current line
 	!+o:: Send, {HOME}{ENTER}{UP} ; create a blank line before the current line
 
-	;======================================select Text===================================================================
-
-	!+Left::Send, +{Home}		;markiert bis Anfang der Zeile -- redundant
-	!+UP::Send, {Home}+{End} 	;markiert ganze Zeile
-	!+Right::Send, +{End}		;markiert bis Ende der Zeile -- redundant
-	^RButton:: 					;markiert die angeklickte Zeile
-	{
-		Click, left
-		IfWinActive, ahk_exe ONENOTE.exe ;because OneNote sucks
-			Click, left
-		Send, {End}
-		Send, +{Home}
-		return
-	}
-
-
-
-	;======================================Firefox specific Hotkeys======================================================
-
-
-	;=======================================Manipulate running Programs=============================================================
+	
+	;======================================= program manipulation =============================================================
 
 	!+q:: Send, !{F4} ;close window
-
-	;::kali:: ;open kali (running on wsl)
-	;!Enter::;
-		;Sleep, 500
-		;Send, {LWin}
-		;Sleep, 500UnableToRetrieveHelpInfoXml
-		;Send, kali
-		;Send, {Enter}
-		;return
 
 	;!r:: Run, %windir%\system32\cmd.exe  ;opens a batch cmd line or focuses an existing one
 	;!p:: Run, %windir%\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe ;open powerShell
@@ -153,48 +121,16 @@
 	return
 
 	^!NumpadEnter::
-	^!ENTER:: ; execute powershell terminal
-		#IfWinNotExist, ahk_exe powershell.exe
-			Run, %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe,,,PID
-			; Run, C:\Users\EichinDa.DONAT-GROUP\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.Ink,,,PID
-			WinWait, ahk_pid %PID%
-			Send, #{UP}
-			Sleep, 500
-			Send, {ESC}
-			;WinMaximize, ahk_exe lync.exe
-		#IfWinNotExist
+	^!ENTER:: ; open windows terminal
+		Run, %LocalAppData%\Microsoft\WindowsApps\wt.exe,,,PID
 		return
 
 
 	;====================================misc============================================================================
 	!F12::keyhistory
 
-
-
 	~LAlt Up:: return
 	AppsKey:: return
 	
-	; TODO: in eigene Datei auslagern
-	;==================================== application specific shortcuts =================================================================
-	; Biquanda umbegen
-	#IfWinActive ahk_exe OpenTime.exe
-		^a::
-		^LEFT:: Send, {F6}
-		^d::
-		^RIGHT:: Send, {F8}
-	#IfWinActive
-
-	/*================================================= Parenthesis Wrapping ===============================================================*/
-
-
-
-
-	/*======================================helper_functions=========================================================*/
-	;^!o::WinGetClass, Clipboard, A ; Will copy the ahk_class of the Active Window to clipboard
-
-	/*================================================PLAYGROUND=========================================================*/
-
-	/*=================================================Disabling keys===============================================================*/
-
 #if 
 ;}
