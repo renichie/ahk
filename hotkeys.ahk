@@ -73,8 +73,8 @@
 	!UP::Send, {PGUP} 		;PgUp
 
 	#IfWinNotActive ahk_exe ONENOTE.exe
-	!LEFT:: Send, {HOME} 	;jump to Pos1
-	!RIGHT:: Send, {END}	;jump to End
+	;!LEFT:: Send, {HOME} 	;jump to Pos1
+	;!RIGHT:: Send, {END}	;jump to End
 	#IfWinNotActive
 
 	^!WheelUp:: Send, ^+{TAB}	;
@@ -107,18 +107,18 @@
 
 	;======================================select Text===================================================================
 
-	!+Left::Send, +{Home}		;markiert bis Anfang der Zeile -- redundant
-	!+UP::Send, {Home}+{End} 	;markiert ganze Zeile
-	!+Right::Send, +{End}		;markiert bis Ende der Zeile -- redundant
-	^RButton:: 					;markiert die angeklickte Zeile
-	{
-		Click, left
-		IfWinActive, ahk_exe ONENOTE.exe ;because OneNote sucks
-			Click, left
-		Send, {End}
-		Send, +{Home}
-		return
-	}
+	;!+Left::Send, +{Home}		;markiert bis Anfang der Zeile -- redundant
+	;!+UP::Send, {Home}+{End} 	;markiert ganze Zeile
+	;!+Right::Send, +{End}		;markiert bis Ende der Zeile -- redundant
+	;^RButton:: 					;markiert die angeklickte Zeile
+	;{
+	;	Click, left
+	;	IfWinActive, ahk_exe ONENOTE.exe ;because OneNote sucks
+	;		Click, left
+	;	Send, {End}
+	;	Send, +{Home}
+	;	return
+	;}
 
 
 
@@ -153,21 +153,13 @@
 	return
 
 	^!NumpadEnter::
-	^!ENTER:: ; execute powershell terminal
-		#IfWinNotExist, ahk_exe powershell.exe
-			Run, %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe,,,PID
-			; Run, C:\Users\EichinDa.DONAT-GROUP\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.Ink,,,PID
-			WinWait, ahk_pid %PID%
-			Send, #{UP}
-			Sleep, 500
-			Send, {ESC}
-			;WinMaximize, ahk_exe lync.exe
-		#IfWinNotExist
+	^!ENTER:: ; open windows terminal
+		Run, %LocalAppData%\Microsoft\WindowsApps\wt.exe,,,PID
 		return
 
 
 	;====================================misc============================================================================
-	!F12::keyhistory
+	;!F12::keyhistory
 
 
 
