@@ -37,12 +37,12 @@ SROLL_SPEED_VERTICAL = 12
 #include text_manipulation.ahk
 
 ;===========================================SHUTDOWN=========================================================
-^!Backspace:: Shutdown, 4
+;^!Backspace:: Shutdown, 4
 
 ;===========================================INCLUDES=========================================================
-^!l:: ;save+reload this file
-	Send ^s
-	MsgBox, success
+^!r:: ;save+reload this file
+	;Send ^s
+	;MsgBox, success
 	Run, %HOTKEY_FILE%
 	Sleep, %SLEEP_INTERVAL_RELOAD% ;necessary for now, because popup needs a few ms
 	Send, {Enter}

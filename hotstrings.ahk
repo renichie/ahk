@@ -15,5 +15,3 @@
 :*:aaw::<-- ; insert <--
 :*:aae::==> ; insert ==>
 :*:aar::<== ; insert <==
-::wptu::@TaskVM12019
-::ttt::tetestuser123
